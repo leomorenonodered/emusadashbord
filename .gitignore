@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# Dash / Build / Temp
+RELATORIOS/
+*.pdf
+*.csv
+
+# Env / Segredos
+.env
+*.env
+
+# Sistema
+.DS_Store
+Thumbs.db
