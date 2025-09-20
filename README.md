@@ -1,7 +1,7 @@
 # ⚡ EMUSA BRASIL – Controle e Monitoramento de Energia
 
 Dashboard profissional para monitoramento em tempo real de tensões, correntes, potência e energia em transformadores e máquinas industriais.  
-Desenvolvido em **Python + Dash**, com suporte a **PostgreSQL** para persistência de dados, exportação para **CSV / PDF** e integração futura com **IA** para análise de consumo.
+Desenvolvido em **Python + Dash**, com suporte a **PostgreSQL** para persistência de dados, exportação para **CSV / PDF** e integração  com **IA** para análise de consumo e sugestoes de melhoria continua 
 
 ---
 
@@ -15,7 +15,7 @@ Desenvolvido em **Python + Dash**, com suporte a **PostgreSQL** para persistênc
   - PDF automático (últimas 24h).
 - 🔔 Alertas configuráveis para variações de tensão.
 - 🤖 Planejado: IA para análise de anomalias e recomendações.
-- 🔌 Suporte a múltiplos medidores (ex.: TF380 + TF paralelo).
+- 🔌 Suporte a múltiplos medidores (ex.: Kron, siemens etc).
 
 ---
 
