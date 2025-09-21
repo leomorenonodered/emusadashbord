@@ -253,7 +253,7 @@ Padrões: Python 3.12, Dash/Plotly (flake8 opcional).
 
 📄 Licença
 
-A definir. (Por enquanto: todos os direitos reservados à EMUSA Brasil / Leo Moreno.)
+ Leo Moreno
 
 Créditos
 EMUSA BRASIL – Controle e Monitoramento de Energia
