@@ -11,6 +11,8 @@ Leitura em tempo real:
 
 Simulador (para desenvolvimento em casa) ou KRON real (na empresa)
 
+Detecção automática da porta COM/CH30 disponível (testa portas e canais, valida conexão e inicia o dashboard já conectado).
+
 KPIs: Tensão LL média, Potência ativa (kW), FP, Frequência (Hz), Energia kWh A
 
 Gráficos:
@@ -25,6 +27,8 @@ CSV (últimas 24h) – pronto para Power BI
 
 PDF (últimas 24h) – gerado com ReportLab e baixado via dcc.Download (Base64)
 
+Relatórios automáticos (IA): resumo compartilhado a cada 6 horas diretamente no dashboard (nenhum relatório automático antes desse intervalo).
+
 Persistência:
 
 PostgreSQL com schema inicial automático
@@ -32,6 +36,8 @@ PostgreSQL com schema inicial automático
 UI:
 
 Paleta dark (azul/preto/branco), layout mais limpo e responsivo
+
+Aba exclusiva “IA & Diagnóstico” com registros monitorados, gráficos de comportamento (kW/Hz/FP) e últimos relatórios automáticos.
 
 🧭 Roadmap (próximas entregas)
 
