@@ -1,0 +1,146 @@
+{
+  "settings": {
+    "baudrate": 9600,
+    "bytesize": 8,
+    "parity": "N",
+    "stopbits": 2,
+    "timeout": 1.5,
+    "scan_slave_ids": [1, 2, 3, 4]
+  },
+  "channels": [
+    {
+      "name": "CH30 canal 1",
+      "slave_id": 1,
+      "detection": {
+        "fn": 3,
+        "register": 0,
+        "count": 4,
+        "type": "string",
+        "expected_prefix": "CH30"
+      }
+    },
+    {
+      "name": "CH30 canal 2",
+      "slave_id": 2,
+      "detection": {
+        "fn": 3,
+        "register": 0,
+        "count": 4,
+        "type": "string",
+        "expected_prefix": "CH30"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "name": "tensao_l1",
+      "fn": 4,
+      "register": 0,
+      "count": 2,
+      "type": "float",
+      "unit": "V",
+      "description": "Tensão fase-neutro L1",
+      "ai": false
+    },
+    {
+      "name": "tensao_l2",
+      "fn": 4,
+      "register": 2,
+      "count": 2,
+      "type": "float",
+      "unit": "V",
+      "description": "Tensão fase-neutro L2",
+      "ai": false
+    },
+    {
+      "name": "tensao_l3",
+      "fn": 4,
+      "register": 4,
+      "count": 2,
+      "type": "float",
+      "unit": "V",
+      "description": "Tensão fase-neutro L3",
+      "ai": false
+    },
+    {
+      "name": "tensao_ll_l1",
+      "fn": 4,
+      "register": 6,
+      "count": 2,
+      "type": "float",
+      "unit": "V",
+      "description": "Tensão linha-linha R-S",
+      "ai": true
+    },
+    {
+      "name": "tensao_ll_l2",
+      "fn": 4,
+      "register": 8,
+      "count": 2,
+      "type": "float",
+      "unit": "V",
+      "description": "Tensão linha-linha S-T",
+      "ai": true
+    },
+    {
+      "name": "tensao_ll_l3",
+      "fn": 4,
+      "register": 10,
+      "count": 2,
+      "type": "float",
+      "unit": "V",
+      "description": "Tensão linha-linha T-R",
+      "ai": true
+    },
+    {
+      "name": "potencia_kw_inst",
+      "fn": 4,
+      "register": 20,
+      "count": 2,
+      "type": "float",
+      "unit": "kW",
+      "description": "Potência ativa instantânea",
+      "ai": true
+    },
+    {
+      "name": "energia_kwh_a",
+      "fn": 4,
+      "register": 40,
+      "count": 2,
+      "type": "float",
+      "unit": "kWh",
+      "description": "Energia canal A acumulada",
+      "ai": true
+    },
+    {
+      "name": "energia_kwh_b",
+      "fn": 4,
+      "register": 42,
+      "count": 2,
+      "type": "float",
+      "unit": "kWh",
+      "description": "Energia canal B acumulada",
+      "ai": false
+    },
+    {
+      "name": "frequencia",
+      "fn": 4,
+      "register": 60,
+      "count": 2,
+      "type": "float",
+      "unit": "Hz",
+      "description": "Frequência",
+      "ai": true
+    },
+    {
+      "name": "fp_avg",
+      "fn": 4,
+      "register": 70,
+      "count": 2,
+      "type": "float",
+      "unit": "pu",
+      "description": "Fator de potência médio",
+      "ai": true
+    }
+  ]
+}

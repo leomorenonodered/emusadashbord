@@ -10,8 +10,31 @@ class KronReaderSim:
         self.kwh_b = 23456.0
         self._last_ts = self.t0
         self._last_kw = 20.0
+        self.connection_info = {
+            "status": "simulador",
+            "port": "SIM",
+            "canal": "Simulação",
+            "identificador": "SIM-CH30",
+        }
+        self._register_meta = [
+            {"name": "tensao_l1", "register": 0, "fn": 4, "unit": "V", "description": "Tensão fase-neutro L1", "ai": False},
+            {"name": "tensao_l2", "register": 2, "fn": 4, "unit": "V", "description": "Tensão fase-neutro L2", "ai": False},
+            {"name": "tensao_l3", "register": 4, "fn": 4, "unit": "V", "description": "Tensão fase-neutro L3", "ai": False},
+            {"name": "tensao_ll_l1", "register": 6, "fn": 4, "unit": "V", "description": "Tensão linha-linha R-S", "ai": True},
+            {"name": "tensao_ll_l2", "register": 8, "fn": 4, "unit": "V", "description": "Tensão linha-linha S-T", "ai": True},
+            {"name": "tensao_ll_l3", "register": 10, "fn": 4, "unit": "V", "description": "Tensão linha-linha T-R", "ai": True},
+            {"name": "corrente_l1", "register": 12, "fn": 4, "unit": "A", "description": "Corrente L1", "ai": False},
+            {"name": "corrente_l2", "register": 14, "fn": 4, "unit": "A", "description": "Corrente L2", "ai": False},
+            {"name": "corrente_l3", "register": 16, "fn": 4, "unit": "A", "description": "Corrente L3", "ai": False},
+            {"name": "potencia_kw_inst", "register": 20, "fn": 4, "unit": "kW", "description": "Potência ativa instantânea", "ai": True},
+            {"name": "energia_kwh_a", "register": 40, "fn": 4, "unit": "kWh", "description": "Energia canal A", "ai": True},
+            {"name": "energia_kwh_b", "register": 42, "fn": 4, "unit": "kWh", "description": "Energia canal B", "ai": False},
+            {"name": "frequencia", "register": 60, "fn": 4, "unit": "Hz", "description": "Frequência", "ai": True},
+            {"name": "fp_avg", "register": 70, "fn": 4, "unit": "pu", "description": "Fator de potência médio", "ai": True},
+        ]
 
     def connect(self):
+        self.connection_info["status"] = "simulador conectado"
         return True
 
     def _wave(self, amp=1.0, speed=0.05, phase=0.0):
@@ -59,3 +82,17 @@ class KronReaderSim:
             "energia_kwh_a": self.kwh_a, "energia_kwh_b": self.kwh_b,
             "frequencia": freq, "fp_avg": fp
         }
+
+    # --- extras usados pelo app real ---
+    def get_register_metadata(self):
+        return list(self._register_meta)
+
+    def relevant_field_names(self):
+        return [m["name"] for m in self._register_meta if m.get("ai")]
+
+    def scan_registers(self):
+        snapshot = self.read_all()
+        rows = []
+        for meta in self._register_meta:
+            rows.append({**meta, "value": snapshot.get(meta["name"])})
+        return rows
